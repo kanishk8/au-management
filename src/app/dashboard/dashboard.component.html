@@ -1,0 +1,31 @@
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
+</head>
+<body>
+
+<h1>Welcome To Dashboard</h1>
+</body>
+</html>
+
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">StuManagement</a>
+    <li><a [routerLink]="['oper']" routerLinkActive="active">Candidate management</a></li>
+      <a mat-list-item href="#"> Assessment</a>
+      <a mat-list-item href="#">onboardingPortal</a>
+     
+    </mat-nav-list>
+  </mat-sidenav>
+  
+</mat-sidenav-container>

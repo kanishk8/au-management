@@ -1,0 +1,22 @@
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+  }
+
+  table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
+
+
+  .wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+}
