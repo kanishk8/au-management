@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <span (click)="toggle()">
+        <a href="#menu">
+            &#9776;
+          </a>
+    </span>
+    <span>operations</span>
+    <div class="spacer"></div>
+  
+    <a mat-button routerLink='/add' >Add</a>
+    <a mat-button routerLink='/view'>ViewAll</a>
+    <a mat-button routerLink='/trends'>Trends</a>
+   
+  </mat-toolbar>
+  <div id="nav__bar" class="nav__bar">
+    <ul>
+        
+        <li><a href="#">StuManagement</a></li>
+        <li><a [routerLink]="['oper']" routerLinkActive="active">Candidate management</a></li>
+        <li><a href="#"> Assessment</a></li>
+        <li><a href="#">onboardingPortal</a></li>
+      
+    </ul>
+  
+   </div>
+  
+  
+  
+    <router-outlet></router-outlet>

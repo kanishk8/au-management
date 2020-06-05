@@ -8,6 +8,7 @@ export class AddStudentService {
 
   constructor(private http:HttpClient) { }
 private url="/details"
+
   public doRegistration(student)
   {
     return this.http.post(this.url,student);
@@ -15,7 +16,10 @@ private url="/details"
 
   public getDetails()
   {
+
+    console.log(this.http.get(this.url));
     return this.http.get(this.url);
+    
   }
 
   public getDetailById(id)

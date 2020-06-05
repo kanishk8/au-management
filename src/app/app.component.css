@@ -1,0 +1,14 @@
+.my-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  div.centeralign {
+    text-align: center;
+}
+
+div.signoutoption {
+    text-align: right;
+}

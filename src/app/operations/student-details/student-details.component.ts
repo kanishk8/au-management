@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
 export class StudentDetailsComponent implements OnInit {
 
   stu:any;
-  id: number;
+  id:any;
+  institute:string;
+  location:string;
+
 
   constructor(private service:AddStudentService,private router: Router) { }
 
@@ -19,6 +22,7 @@ export class StudentDetailsComponent implements OnInit {
    let resp= this.service.getDetails();
    resp.subscribe((data)=>this.stu=data);
   }
+  
   public  view()
   {
      this.router.navigateByUrl('oper');
@@ -38,13 +42,27 @@ export class StudentDetailsComponent implements OnInit {
 
 
 
+ Search()
+ {
+   this.stu=this.stu.filter(res=>{
+     return res.institute.toLowerCase().match(this.institute.toLowerCase());
 
+   });
+ }
+ Find()
+ {
+  this.stu=this.stu.filter(res=>{
+    return res.location.toLowerCase().match(this.location.toLowerCase());
+
+  });
+ }
 
 
   public findUserById(id)
   {
      let resp= this.service.getDetailById(this.id);// i used it here
-     resp.subscribe((data)=>this.stu=data);
+   //  resp.subscribe((data)=>this.stu=data);
+   resp.subscribe((data=>this.stu=[[{"id":33,"institute":"iit delhi","skill_set":"ml","contact_details":"8933549945","tentative_joining_date":"2020-08-01 00:00:00","location":"delhi","description":"se","feedback":"good "}]]))
      console.log(this.id);
      // this.stu=this.stu.filter(res=>{
        //  return res.id.match(this.id);

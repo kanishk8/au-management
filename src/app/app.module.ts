@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-//import {MatToolbarModule} from '@angular/material/toolbar';
 
-
+import { Cart } from 'chart.js';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -23,10 +22,40 @@ import { UpdateStudentComponent } from './operations/update-student/update-stude
 import { AddStudentService } from './add-student.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TrendsComponent } from './operations/trends/trends.component';
+import { LocationComponent } from './operations/trends/location/location.component';
+import { DummyComponent } from './dummy/dummy.component';
+import { NavigateComponent } from './navigate/navigate.component';
+
+
+
+/*const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("302817255877-3pc4domkft58sr6dikbmhkods82l93a7.apps.googleusercontent.com")
+  }
+]);
+
+
+export function provideConfig() {
+  return config;
+}*/
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("302817255877-3pc4domkft58sr6dikbmhkods82l93a7.apps.googleusercontent.com")
+  }
+]);
+export function provideConfig() {
+  return config;
+}
 
 
 @NgModule({
@@ -37,12 +66,16 @@ import { TrendsComponent } from './operations/trends/trends.component';
     CreateStudentComponent,
     StudentDetailsComponent,
     UpdateStudentComponent,
-    TrendsComponent
+    TrendsComponent,
+    LocationComponent,
+    DummyComponent,
+    NavigateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -53,9 +86,21 @@ import { TrendsComponent } from './operations/trends/trends.component';
     MatListModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    NgxChartsModule
+    NgxChartsModule,
+    SocialLoginModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger'
+    })
+    
+  //  Cart
   ],
-  providers: [AddStudentService],
+  providers: [AddStudentService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

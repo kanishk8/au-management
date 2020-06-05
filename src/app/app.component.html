@@ -1,2 +1,55 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<router-outlet></router-outlet>
+
+<style>
+  .container {
+    height: 200px;
+    position: relative;
+    border: 3px white;
+  }
+  
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    -ms-transform: translateY(-70%);
+    transform: translateY(-70%);
+  }
+  </style>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+    <title>Accolite University</title>
+  </head><body class="bg-light">
+  <div class="container">
+    <div class="signoutoption" *ngIf="loggedIn===true">
+        <br>
+        <button type="button" (click)="signOut()" class="btn btn-primary">Sign Out</button>
+    </div>
+    <div class="row py-5 justify-content-center">
+      <div class="col-md-8">
+              
+        <div class="centeralign" *ngIf="loggedIn===false">
+            <h1 class="text-center py-4">AU Portal</h1>  
+            <br>
+            <img src="../assets/Images/download.jpg" class ="my-image" alt="Accolite University">
+            <br>
+            <br>     
+            <div class="container">
+              <div class="my-image">
+                <button type="button" (click)="signInWithGoogle()" class ="centeralign"  class="btn btn-primary ">Sign In With Google</button>
+              </div>
+            </div>    
+          
+        </div>
+        </div> 
+    </div>
+</div>       
+      <div *ngIf="loggedIn===true">
+        <app-navigate></app-navigate>
+        
+        </div>
+        
+</body>
+</html> 
+

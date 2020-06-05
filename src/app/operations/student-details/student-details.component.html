@@ -3,6 +3,14 @@
 
 <div class="container">
     <div class="container">
+        <div style="text-align: center; border:darkblue;">
+        <input type="text" [(ngModel)]="location" placeholder="Search with location" (input)="Find()"/>
+        </div>
+        <div style="text-align: center; border:darkblue;">
+             <input type="text" [(ngModel)]="institute" placeholder="Search with institute" (input)="Search()"/>
+        </div>
+        
+        
 <table border="1" style="background-color:burlywood" class="center">
 
     <style>
@@ -47,9 +55,4 @@
     </tbody>
 </table>
 </div>
-</div>
-
-
-<div class="form-group" class="wrapper">
-    <input class="btn btn-success" type="submit" name="submit_reg" text-align: center value="ViewDone" (click)="view()">
 </div>
